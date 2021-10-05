@@ -1,49 +1,83 @@
-exports.endianness = function () { return 'LE' };
+export function endianness() {
+  const buf = Memory.alloc(4);
+  buf.writeU32(1);
+  return (buf.readU8() === 1) ? 'LE' : 'BE';
+}
 
-exports.hostname = function () {
-    if (typeof location !== 'undefined') {
-        return location.hostname
-    }
-    else return '';
-};
+export function hostname() {
+  return '';
+}
 
-exports.loadavg = function () { return [] };
+export function loadavg() {
+  return [0, 0, 0];
+}
 
-exports.uptime = function () { return 0 };
+export function uptime() {
+  return 0;
+}
 
-exports.freemem = function () {
-    return Number.MAX_VALUE;
-};
+export function freemem() {
+  return Number.MAX_VALUE;
+}
 
-exports.totalmem = function () {
-    return Number.MAX_VALUE;
-};
+export function totalmem() {
+  return Number.MAX_VALUE;
+}
 
-exports.cpus = function () { return [] };
+export function cpus() {
+  return [];
+}
 
-exports.type = function () { return 'Browser' };
+export function type() {
+  const p = Process.platform;
+  return p[0].toUpperCase() + p.substr(1);
+}
 
-exports.release = function () {
-    if (typeof navigator !== 'undefined') {
-        return navigator.appVersion;
-    }
-    return '';
-};
+export function release() {
+  return '';
+}
 
-exports.networkInterfaces
-= exports.getNetworkInterfaces
-= function () { return {} };
+export function networkInterfaces() {
+  return {};
+}
 
-exports.arch = function () { return 'javascript' };
+export function getNetworkInterfaces() {
+  return {};
+}
 
-exports.platform = function () { return 'browser' };
+export function arch() {
+  return Process.arch;
+}
 
-exports.tmpdir = exports.tmpDir = function () {
-    return '/tmp';
-};
+export function platform() {
+  return Process.platform;
+}
 
-exports.EOL = '\n';
+export function tmpdir() {
+  return Process.tmpDir;
+}
 
-exports.homedir = function () {
-	return '/'
+export const EOL = (Process.platform === 'windows') ? '\r\n' : '\n';
+
+export function homedir() {
+  return Process.homeDir;
+}
+
+export default {
+  endianness,
+  hostname,
+  loadavg,
+  uptime,
+  freemem,
+  totalmem,
+  cpus,
+  type,
+  release,
+  networkInterfaces,
+  getNetworkInterfaces,
+  arch,
+  platform,
+  tmpdir,
+  EOL,
+  homedir,
 };

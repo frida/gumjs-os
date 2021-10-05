@@ -11,6 +11,7 @@
   "files": [
     "/index.js"
   ],
+  "type": "module",
   "homepage": "https://github.com/frida/gumjs-os",
   "repository": {
     "type": "git",
