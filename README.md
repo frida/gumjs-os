@@ -1,5 +1,3 @@
-# os-browserify
+# @frida/os
 
-The [os](https://nodejs.org/api/os.html) module from node.js, but for browsers.
-
-When you `require('os')` in [browserify](http://github.com/substack/node-browserify), this module will be loaded.
+Frida-optimized ESM fork of https://github.com/CoderPuppy/os-browserify.
