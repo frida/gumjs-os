@@ -54,13 +54,13 @@ export function platform() {
 }
 
 export function tmpdir() {
-  return Process.tmpDir;
+  return Process.getTmpDir();
 }
 
 export const EOL = (Process.platform === 'windows') ? '\r\n' : '\n';
 
 export function homedir() {
-  return Process.homeDir;
+  return Process.getHomeDir();
 }
 
 export default {
