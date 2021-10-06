@@ -30,6 +30,8 @@ export function cpus() {
 
 export function type() {
   const p = Process.platform;
+  if (p === 'windows')
+    return 'Windows_NT';
   return p[0].toUpperCase() + p.substr(1);
 }
 
@@ -50,7 +52,10 @@ export function arch() {
 }
 
 export function platform() {
-  return Process.platform;
+  const p = Process.platform;
+  if (p === 'windows')
+    return 'win32';
+  return p;
 }
 
 export function tmpdir() {
