@@ -16,5 +16,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/frida/gumjs-os.git"
+  },
+  "devDependencies": {
+    "@types/frida-gum": "^18.7.0"
   }
 }
