@@ -120,7 +120,7 @@ export function release() {
 
         for (const offset of offsets) {
           const str = struct.add(offset).readCString();
-          if (str && str.length > 5) {
+          if (str) {
             hostnameOffset = offset;
             break;
           }
